@@ -3,7 +3,7 @@ stage ('checkout'){
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'b6747f33-6c4f-4e6c-b8ef-1d2157edff48', url: 'https://github.com/kalyan126/angular-with-spring-boot-and-mongo.git']]])
 }
 stage('test - build') {
-bat '''
+sh '''
 mvn clean install'''    
 }
 stage ('junit')
